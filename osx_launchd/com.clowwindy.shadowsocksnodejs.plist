@@ -7,7 +7,7 @@
         <key>ProgramArguments</key>
         <array>
             <string>{{PATH-TO-NODE}}</string>
-            <string>{{PATH-TO-shadowsocks-nodejs}}/local.js</string>
+            <string>{{PATH-TO-shadowsocks-nodejs}}/bin/sslocal</string>
         </array>
         <key>RunAtLoad</key>
         <true/>
