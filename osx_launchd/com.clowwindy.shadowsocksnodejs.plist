@@ -16,8 +16,8 @@
         <key>KeepAlive</key>
         <true/>
         <key>StandardOutPath</key>
-        <string>/var/log/system.log</string>
+        <string>/var/log/shadow.log</string>
         <key>StandardErrorPath</key>
-        <string>/var/log/system.log</string>
+        <string>/var/log/shadow.log</string>
     </dict>
 </plist>
