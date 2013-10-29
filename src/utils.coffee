@@ -50,7 +50,7 @@ exports.checkConfig = (config) ->
   if (config.method or '').toLowerCase() == 'rc4'
     exports.warn 'RC4 is not safe; please use a safer cipher, like AES-256-CFB'
 
-exports.version = "shadowsocks-nodejs v1.4.1"
+exports.version = "shadowsocks-nodejs v1.4.2"
 
 exports.EVERYTHING = 0
 exports.DEBUG = 1
@@ -81,6 +81,17 @@ exports.error = (msg)->
 
 setInterval(->
   if global.gc
+    exports.debug(JSON.stringify(process.memoryUsage(), ' ', 2))
     exports.debug 'GC'
     gc()
-, 30000)
+    exports.debug(JSON.stringify(process.memoryUsage(), ' ', 2))
+    cwd = process.cwd()
+    if _logging_level == exports.DEBUG
+      try
+        heapdump = require 'heapdump'
+        process.chdir '/tmp'
+#        heapdump.writeSnapshot()
+        process.chdir cwd
+      catch e
+        exports.debug e
+, 1000)
